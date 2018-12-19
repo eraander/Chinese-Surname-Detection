@@ -70,7 +70,7 @@ def find_idx_ns(s):
 	return res
 
 
-if __name__ == "__main__":
+def main():
 	infile = open("taggedwords.txt", "r")
 	sentences = (infile.read()).split("。/w")
 	pos_instances = []
