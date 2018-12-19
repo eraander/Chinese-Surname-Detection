@@ -65,7 +65,10 @@ class SurDetection(object):
 
 
 def main():
+
     sd = SurDetection('data/dc_surname', 'data/vocab.title')
     sd.surrounding_extraction('data/train.snt')
     sd.surname_extraction()
-    print(sd.surname)
+
+    return sd.surname
+    # print(sd.surname)
