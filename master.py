@@ -9,5 +9,6 @@ if __name__ == '__main__':
     ''' hub file that runs all the little files that we worked on
     '''
     foreign_names.main()
-    surname_detection.main()
+    surname = surname_detection.main()
+    given_name.main(surname)
     places.main()
