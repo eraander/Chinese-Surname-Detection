@@ -90,7 +90,7 @@ def evaluate_classifier(classifier, test_data):
     test_st = [classifier.classify(t[0]) for t in test_data]
     cm = nltk.ConfusionMatrix(gold_st, test_st)
     print(cm.pretty_format(sort_by_count=True, show_percents=True, truncate=9))
-    print(nltk.classify.accuracy(classifier, test_data))
+    print('Accuracy: ' + str(nltk.classify.accuracy(classifier, test_data)) + '\n')
 
 def create_evaluate_data(file):
     ''' method that assigns values of l_foreign or l_Chinese to each NR based on my
@@ -135,7 +135,7 @@ def run_classifier(classifier, file):
     test_st = [classifier.classify(t[0]) for t in feature_sets]
     cm = nltk.ConfusionMatrix(gold_st, test_st)
     print(cm.pretty_format(sort_by_count=True, show_percents=True, truncate=9))
-    print(nltk.classify.accuracy(classifier, feature_sets))
+    print('Accuracy: ' + str(nltk.classify.accuracy(classifier, feature_sets)) + '\n')
 
 
 def main():
@@ -150,6 +150,7 @@ def main():
     proper_noun_data = make_proper_noun_labels(labeled_sents)
     training_data, test_data = create_feature_sets(proper_noun_data)
     classifier = train_classifier(training_data)
+    print('\nTest Data Evaluation:\n')
     evaluate_classifier(classifier, test_data)
     # f = open('ctb9.0/data/postagged/chtb_4114.bc.pos', 'r')
     #tagged_sentences = create_evaluate_data(f)
@@ -158,8 +159,11 @@ def main():
     file1 = 'ctb9.0/data/postagged/chtb_4112.bc.pos'
     file2 = 'ctb9.0/data/postagged/chtb_4113.bc.pos'
     file3 = 'ctb9.0/data/postagged/chtb_4114.bc.pos'
+    print(file1)
     run_classifier(classifier, file1)
+    print(file2)
     run_classifier(classifier, file2)
+    print(file3)
     run_classifier(classifier, file3)
 
 
