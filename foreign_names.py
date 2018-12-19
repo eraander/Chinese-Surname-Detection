@@ -148,12 +148,11 @@ def main():
     for file in os.listdir(folder):
         path = os.path.join(folder, file)
         if path.endswith('bn.pos'):
-            print(file)
             sents = readposfile(path)
             labeled_sents.extend(make_labeled_data(sents))
-    for l in labeled_sents:
-        if '罗' in l[0]:
-            print(l)
+    # for l in labeled_sents:
+    #     if '罗' in l[0]:
+    #        print(l)
     proper_noun_data = make_proper_noun_labels(labeled_sents)
     training_data, test_data = create_feature_sets(proper_noun_data)
     classifier = train_classifier(training_data)
