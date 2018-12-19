@@ -7,6 +7,7 @@ Kun Li
   - worked on given_name.py
   
 Qingwen Ye
+  - worked on places.py  tools.py
 
 Erik Andersen
   - worked on foreign_names.py
