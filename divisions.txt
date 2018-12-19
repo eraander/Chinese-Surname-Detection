@@ -1,0 +1,10 @@
+Herein lies the division of our labour.
+
+Jin Zhao
+
+Kun Li
+
+Qingwen Ye
+
+Erik Andersen
+  - I worked on foreign_names.py
