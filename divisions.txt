@@ -7,4 +7,4 @@ Kun Li
 Qingwen Ye
 
 Erik Andersen
-  - I worked on foreign_names.py
+  - worked on foreign_names.py
