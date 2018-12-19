@@ -1,6 +1,7 @@
 Herein lies the division of our labour.
 
 Jin Zhao
+  - worked on surname_detection.py
 
 Kun Li
 
