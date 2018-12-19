@@ -4,7 +4,8 @@ Jin Zhao
   - worked on surname_detection.py
 
 Kun Li
-
+  - worked on given_name.py
+  
 Qingwen Ye
 
 Erik Andersen
