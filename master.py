@@ -8,8 +8,12 @@ import places
 
 if __name__ == '__main__':
     ''' hub file that runs all the little files that we worked on
-    '''
-    foreign_names.main()
+    ''' 
+
+    print('\nPERSONAL NAMES: \n')
     surname = surname_detection.main()
     given_name.main(surname)
+    print('\nPLACE NAMES: \n')
     places.main()
+    print('\nFOREIGN NAMES: \n')
+    foreign_names.main()
