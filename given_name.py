@@ -63,19 +63,19 @@ def name_quality1(name):
 	smart = "聪明伶俐点头会意见经识经精明能千伶百俐手急眼快别具慧眼百伶百俐辨日炎凉冰雪绝世聪明正直大巧若拙慧心妙舌巧思绝顶聪明精明能干精明强干绝圣弃智敬谢不敏谨谢不敏锦心绣肠口齿伶俐兰质蕙心目达耳通敏学偶变投隙巧妇难为七行俱下千虑一失七窍玲珑识时务者为俊杰时势造英雄上智下愚投机取巧剔透万物之灵小时了了秀外慧中小黠大痴左手画方颖悟绝伦绝人予智予雄抓乖卖俏抓乖弄俏自作聪明足智谋"
 	personality = "清白公正凛然正直无私刚正克己奉公负重奉公忠心忠贞谦虚谨慎廉洁毅然决然豁达大度乐观坦白舍己勤奋刻苦认真专注钻研踏实勤恳虚心好学高尚德厚厚德蕙心德劭志士仁人杰出超伦自爱自尊自强自谦德高宽容宽宏律己助人好施仗义助人雄心壮志光明磊落"
 	if len(name) == 1:
-		print(name, "is a good name")
+		print(name, "is a good name.")
 	elif name[0] in handsome and name[1] in handsome:
-		print(name, "is not a good name, because both character has same meaning") 
+		print(name, "is not a good name, because both character has same meaning.") 
 	elif name[0] in wealth and name[1] in wealth:
-		print(name, "is not a good name, because both character has same meaning")
+		print(name, "is not a good name, because both character has same meaning.")
 	elif name[0] in health and name[1] in health:
-		print(name, "is not a good name, because both character has same meaning")
+		print(name, "is not a good name, because both character has same meaning.")
 	elif name[0] in smart and name[1] in smart:
-		print(name, "is not a good name, because both character has same meaning")
+		print(name, "is not a good name, because both character has same meaning.")
 	elif name[0] in personality and name[1] in personality:
-		print(name, "is not a good name, because both character has same meaning")
+		print(name, "is not a good name, because both character has same meaning.")
 	else:
-		print("It is a good name!")
+		print(name, "It is a good name!")
 
 
 def name_quality0(name):
@@ -84,7 +84,7 @@ def name_quality0(name):
 	There are strings that contains chinese character of different attribute.
 	If the name contains two character of a certain attribute, then it duplicates, which will return not a good name. otherwise, will return " a good name."
 	"""
-	print("This is a female name.")
+	print(name, "This is a female name.")
 	beauty = "贤惠颖德慧智雅静梦洁惠茜桑榆畅淑姝娈玲嫣婧"
 	wealth = "珠光宝气 珠围翠绕 金玉满堂 荣华富贵 富贵荣华 朱门绣户 锦衣玉食 侯服玉食 纸醉金迷 朱轮华毂 一掷千金 堆金积玉"
 	health = "红光满面焕发饱满振奋十足炯一身正气身强龙精虎猛长乐永康身强壮龙精寿比福如东海虎体熊腰虎背熊腰膘肥体生龙心气壮如龙神马壮益壮人高马大虎背熊腰精神抖擞红光龙钟寿年丰足常奋进取乐自得其乐"
@@ -93,15 +93,15 @@ def name_quality0(name):
 	if len(name) == 1:
 		print(name, "is a good name")
 	elif name[0] in beauty and name[1] in beauty:
-		print(name, "is not a good name, because both character has same meaning") 
+		print(name, "is not a good name, because both character has same meaning.") 
 	elif name[0] in wealth and name[1] in wealth:
-		print(name, "is not a good name, because both character has same meaning")
+		print(name, "is not a good name, because both character has same meaning.")
 	elif name[0] in health and name[1] in health:
-		print(name, "is not a good name, because both character has same meaning")
+		print(name, "is not a good name, because both character has same meaning.")
 	elif name[0] in smart and name[1] in smart:
-		print(name, "is not a good name, because both character has same meaning")
+		print(name, "is not a good name, because both character has same meaning.")
 	else:
-		print("It is a good name")
+		print(name, "It is a good name!")
 
 def main(surname):
 	labeled_data = create_labeled_data()
