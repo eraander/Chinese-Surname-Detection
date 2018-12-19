@@ -3,6 +3,7 @@ import os, re, sys
 
 import foreign_names
 import surname_detection
+import given_name
 import places
 
 if __name__ == '__main__':
