@@ -141,7 +141,7 @@ def run_classifier(classifier, file):
     print(nltk.classify.accuracy(classifier, feature_sets))
 
 
-if __name__ == '__main__':
+def main():
     ''' main method '''
     labeled_sents = []
     folder = 'ctb9.0/data/postagged'
