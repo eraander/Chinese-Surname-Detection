@@ -1,13 +1,13 @@
 
 import os, re, nltk
 
-translit_characters = '布普德特格克夫弗兹茨斯丝什奇赫姆恩尔伊古库胡阿巴帕达塔加卡瓦娃法扎察萨莎贾查哈马玛纳娜拉亚娅瓜夸埃贝佩泰盖凯韦费泽策塞热' \
-                      '谢杰切黑梅内莱雷蕾耶圭奎惠厄伯珀沃瑟舍哲彻赫默娜纳勒果阔霍伊比皮迪蒂吉基维威菲齐西希奇米尼妮利莉里丽伊圭奎惠欧奥博波多托戈科沃' \
+translit_characters = '布普德特格克夫弗兹茨斯丝什奇赫姆恩尔伊古库胡帕达塔加卡瓦娃法扎察萨莎贾查哈马玛纳娜拉亚娅瓜夸贝佩泰盖凯韦费泽策塞热' \
+                      '谢杰切黑梅内雷蕾耶圭奎惠厄伯珀沃瑟舍哲彻赫默娜纳勒果阔霍伊比皮迪蒂吉基维威齐西希奇米尼妮利莉里丽伊圭奎惠欧奥博波多托戈科沃' \
                       '福佐措索若肖乔莫诺洛罗萝约乌杜图古库武伍富祖楚苏茹舒朱穆努卢鲁尤久丘休缪纽柳留艾拜派代戴怀宰蔡赛夏柴海迈奈赖鲍保道陶高考藻曹绍' \
                       '焦豪毛瑙劳尧安班潘丹坦甘坎万凡赞灿桑詹钱汉曼兰关宽环昂邦庞当唐冈康旺方仓让尚章昌杭芒南朗扬光匡黄本彭登滕根肯文芬曾岑森任申真' \
-                      '琴亨门嫩伦延昆因英宾平丁廷金京温津欣青辛兴钦明宁林琳翁宏蓬顿敦东通贡孔丰尊宗聪孙松容顺雄准春琼洪蒙农云隆龙律大施卜'
-high_incidence_foreign_chars = '罗埃菲莱巴克'
-deceptive_chars = '藏日华'
+                      '琴亨门嫩伦延昆因英宾平丁廷金温津欣青辛兴钦明宁林琳翁宏蓬顿敦东通贡孔丰尊宗聪孙松容顺雄准春琼洪蒙农云隆龙律大施卜'
+high_incidence_foreign_chars = '罗埃菲莱巴克阿'
+deceptive_chars = '藏日华京'
 
 def readposfile(file):
     '''reads in a Chinese pos_tagged file and places each sentence into a list'''
@@ -37,7 +37,7 @@ def make_labeled_data(sentences):
         for item in split:
             pair = tuple(item.split("_"))
             # labeled_pair = tuple()
-            if pair[1] == 'NR' and not pair[0].endswith('京') and re.match(char_regex, pair[0]):
+            if pair[1] == 'NR' and re.match(char_regex, pair[0]):
                 labeled_pair = (pair, 'l_foreign')
             elif pair[1] == 'NR':
                 labeled_pair = (pair, 'l_Chinese')
@@ -49,7 +49,7 @@ def make_labeled_data(sentences):
 
 def make_regex():
     '''method that compiles the regex to be used to identify likely foreign proper names'''
-    char_regex = r'(([%s]+|[A-Z])([‧·]([%s]+|[A-Z]))*\b)|\b.*[%s].*\b|[A-Za-z]+' % \
+    char_regex = r'(([%s]+|[A-Z])([‧·]([%s]+|[A-Z]))*\b)|.*[%s].*\b|[A-z]+\b' % \
                  (translit_characters, translit_characters, high_incidence_foreign_chars)
     return re.compile(char_regex)
 
@@ -118,13 +118,10 @@ def create_evaluate_data(file):
         evaluate_data.extend(tagged_sent)
     return evaluate_data
 
-
-
-
 def run_classifier(classifier, file):
     '''runs the classifier on the tagged data found in the file,
     where I tagged every NR (proper noun) as foreign or native (Sinitic)
-    I tagged as follows for chtb_4114.bc.pos:
+    I tagged as follows for .bc.pos files:
     transliterated = foreign
     uses native Chinese name (even Japanese/Korean names) = Sinitic
     '''
@@ -150,9 +147,6 @@ def main():
         if path.endswith('bn.pos'):
             sents = readposfile(path)
             labeled_sents.extend(make_labeled_data(sents))
-    # for l in labeled_sents:
-    #     if '罗' in l[0]:
-    #        print(l)
     proper_noun_data = make_proper_noun_labels(labeled_sents)
     training_data, test_data = create_feature_sets(proper_noun_data)
     classifier = train_classifier(training_data)
@@ -160,6 +154,7 @@ def main():
     # f = open('ctb9.0/data/postagged/chtb_4114.bc.pos', 'r')
     #tagged_sentences = create_evaluate_data(f)
 
+    print('\nFile Tests:\n')
     file1 = 'ctb9.0/data/postagged/chtb_4112.bc.pos'
     file2 = 'ctb9.0/data/postagged/chtb_4113.bc.pos'
     file3 = 'ctb9.0/data/postagged/chtb_4114.bc.pos'
