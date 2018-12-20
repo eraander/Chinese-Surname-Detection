@@ -1,3 +1,8 @@
+#-----------------------------------------------------------
+# Place name classification module
+# By: Qingwen Ye @ 12/19/2018
+#-----------------------------------------------------------
+
 import numpy as np
 import matplotlib.pyplot as plt
 import sklearn
